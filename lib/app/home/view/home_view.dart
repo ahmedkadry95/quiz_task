@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:task/app/home/view_model/home_view_model.dart';
 import 'package:task/app/home/widgets/home_item.dart';
 import 'package:task/base_screen.dart';
+import 'package:task/routs/routs_names.dart';
 import 'package:task/utils/colors.dart';
-import 'package:task/utils/spaces.dart';
+import 'package:task/utils/extensions.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -41,7 +42,9 @@ class HomeView extends StatelessWidget {
                     image: 'assets/images/shaps.png',
                     color: blueColor,
                     text: 'let\'s play',
-                  ),
+                  ).onTap(() {
+                    viewModel.navigation.navigateTo(RouteName.play);
+                  }),
                   homeItem(
                     image: 'assets/images/history.png',
                     color: orangeColor,

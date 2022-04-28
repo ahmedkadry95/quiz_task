@@ -9,5 +9,6 @@ const pinkColor = Color(0xffE96075);
 const blueColor = Color(0xff3676BB);
 const orangeColor = Color(0xffFF991F);
 const greenColor = Color(0xff01A4A5);
+const successfulColor = Color(0xff149E4B);
 const Color blackColor = Colors.black;
 const Color whiteColor = Colors.white;

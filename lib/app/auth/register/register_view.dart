@@ -5,6 +5,7 @@ import 'package:task/app/auth/widgets/custom_text_form_field.dart';
 import 'package:task/app/auth/widgets/diffrent_colors_text.dart';
 import 'package:task/app/widgets/main_button.dart';
 import 'package:task/base_screen.dart';
+import 'package:task/enums/screen_state.dart';
 import 'package:task/routs/routs_names.dart';
 import 'package:task/utils/colors.dart';
 import 'package:task/utils/extensions.dart';
@@ -38,12 +39,14 @@ class RegisterView extends StatelessWidget {
                       inputType: TextInputType.text,
                       controller: viewModel.userName,
                       isPassword: false,
+                      validator: viewModel.userNameValidator(),
                     ),
                     heightSpace(20),
                     CustomTextFormField(
                       label: 'Email',
                       inputType: TextInputType.text,
                       controller: viewModel.email,
+                      validator: viewModel.emailValidator(),
                     ),
                     heightSpace(20),
                     CustomTextFormField(
@@ -51,6 +54,7 @@ class RegisterView extends StatelessWidget {
                       inputType: TextInputType.text,
                       controller: viewModel.password,
                       isPassword: true,
+                      validator: viewModel.passwordValidator(),
                     ),
                     heightSpace(20),
                     CustomTextFormField(
@@ -58,13 +62,20 @@ class RegisterView extends StatelessWidget {
                       inputType: TextInputType.number,
                       controller: viewModel.mobile,
                       isPassword: false,
+                      validator: viewModel.mobileValidator(),
                     ),
                     heightSpace(50),
-                    mainButton(
-                      text: 'Register',
-                    ).onTap(() {
-                      viewModel.validation(context);
-                    }),
+                    viewModel.state == ViewState.Busy
+                        ? Center(
+                            child: Center(
+                                child: CircularProgressIndicator(
+                            color: purpleColor,
+                          )))
+                        : mainButton(
+                            text: 'Register',
+                          ).onTap(() {
+                            viewModel.register(context);
+                          }),
                     heightSpace(20),
                     differentColorsText(
                       blackText: 'already have account ?',

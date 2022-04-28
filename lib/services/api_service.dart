@@ -4,9 +4,14 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:task/app/auth/model/user_model.dart';
 
+import '../app/play/model/question_model.dart';
+
 class ApiService {
   UserCredential? userCredential;
   CollectionReference users = FirebaseFirestore.instance.collection('users');
+  CollectionReference questions =
+      FirebaseFirestore.instance.collection('questions');
+  List<QuestionModel> questionsList = [];
 
   Future<String> signInWithEmailAndPassword({
     required String email,
@@ -130,5 +135,17 @@ class ApiService {
         )
         .then((value) => print("User Added"))
         .catchError((error) => print("Failed to add user: $error"));
+  }
+
+
+
+  Future<List<QuestionModel>> getAllQuestions() async {
+    QuerySnapshot querySnapshot = await questions.get();
+    List<QueryDocumentSnapshot> data = querySnapshot.docs;
+    for (var element in data) {
+      print(element.data().runtimeType);
+      questionsList.add(QuestionModel.fromJson(element.data()));
+    }
+    return questionsList ;
   }
 }

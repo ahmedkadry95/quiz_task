@@ -6,6 +6,7 @@ import 'package:task/app/auth/widgets/diffrent_colors_text.dart';
 import 'package:task/app/auth/widgets/social_login.dart';
 import 'package:task/app/widgets/main_button.dart';
 import 'package:task/base_screen.dart';
+import 'package:task/enums/screen_state.dart';
 import 'package:task/routs/routs_names.dart';
 import 'package:task/utils/colors.dart';
 import 'package:task/utils/extensions.dart';
@@ -39,6 +40,7 @@ class LogInView extends StatelessWidget {
                       label: 'Email',
                       inputType: TextInputType.text,
                       controller: viewModel.email,
+                      validator: viewModel.emailValidator(),
                     ),
                     heightSpace(20),
                     CustomTextFormField(
@@ -46,13 +48,16 @@ class LogInView extends StatelessWidget {
                       inputType: TextInputType.text,
                       controller: viewModel.password,
                       isPassword: true,
+                      validator: viewModel.passwordValidator(),
                     ),
                     heightSpace(50),
-                    mainButton(
-                      text: 'Log In',
-                    ).onTap(() {
-                      viewModel.validation(context);
-                    }),
+                    viewModel.state == ViewState.Busy
+                        ? Center(child: CircularProgressIndicator())
+                        : mainButton(
+                            text: 'Log In',
+                          ).onTap(() {
+                            viewModel.login(context);
+                          }),
                     heightSpace(20),
                     differentColorsText(
                             blackText: 'don\'t have account ?',

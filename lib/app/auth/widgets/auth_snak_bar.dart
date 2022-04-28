@@ -12,104 +12,26 @@ final failsAuthSnackBar = SnackBar(
   behavior: SnackBarBehavior.floating,
 );
 
-final userNameSnackBar = SnackBar(
-  content: const Text('Pleas enter your user name'),
+final successfulRegisterSnackBar = SnackBar(
+  content: const Text('your account created successfully'),
   action: SnackBarAction(
     label: '',
     textColor: whiteColor,
     onPressed: () {},
   ),
-  backgroundColor: errorColor,
-  behavior: SnackBarBehavior.floating,
-);
-final emptyEmailSnackBar = SnackBar(
-  content: const Text('Pleas enter your email'),
-  action: SnackBarAction(
-    label: '',
-    textColor: whiteColor,
-    onPressed: () {},
-  ),
-  backgroundColor: errorColor,
-  behavior: SnackBarBehavior.floating,
-);
-final validEmailSnackBar = SnackBar(
-  content: const Text('this email is not valid '),
-  action: SnackBarAction(
-    label: '',
-    textColor: whiteColor,
-    onPressed: () {},
-  ),
-  backgroundColor: errorColor,
-  behavior: SnackBarBehavior.floating,
-);
-final shortPasswordSnackBar = SnackBar(
-  content: const Text('this password is to weak'),
-  action: SnackBarAction(
-    label: '',
-    textColor: whiteColor,
-    onPressed: () {},
-  ),
-  backgroundColor: errorColor,
-  behavior: SnackBarBehavior.floating,
-);
-final mobileSnackBar = SnackBar(
-  content: const Text('Pleas enter your mobile number'),
-  action: SnackBarAction(
-    label: '',
-    textColor: whiteColor,
-    onPressed: () {},
-  ),
-  backgroundColor: errorColor,
-  behavior: SnackBarBehavior.floating,
-);
-final validMobileSnackBar = SnackBar(
-  content: const Text('Pleas enter valid mobile number'),
-  action: SnackBarAction(
-    label: '',
-    textColor: whiteColor,
-    onPressed: () {},
-  ),
-  backgroundColor: errorColor,
-  behavior: SnackBarBehavior.floating,
-);
-final passwordSnackBar = SnackBar(
-  content: const Text('Pleas enter your password'),
-  action: SnackBarAction(
-    label: '',
-    textColor: whiteColor,
-    onPressed: () {},
-  ),
-  backgroundColor: errorColor,
-  behavior: SnackBarBehavior.floating,
-);
-final citySnackBar = SnackBar(
-  content: const Text('Pleas enter your city'),
-  action: SnackBarAction(
-    label: '',
-    textColor: whiteColor,
-    onPressed: () {},
-  ),
-  backgroundColor: errorColor,
-  behavior: SnackBarBehavior.floating,
-);
-final streetSnackBar = SnackBar(
-  content: const Text('Pleas enter your street'),
-  action: SnackBarAction(
-    label: '',
-    textColor: whiteColor,
-    onPressed: () {},
-  ),
-  backgroundColor: errorColor,
+  duration: Duration(milliseconds: 5),
+  backgroundColor: successfulColor,
   behavior: SnackBarBehavior.floating,
 );
 
-final buildingNumberSnackBar = SnackBar(
-  content: const Text('Pleas enter your building number'),
+final existSnackBar = SnackBar(
+  content: const Text('this email is already exist'),
   action: SnackBarAction(
     label: '',
     textColor: whiteColor,
     onPressed: () {},
   ),
+  duration: Duration(seconds: 5),
   backgroundColor: errorColor,
   behavior: SnackBarBehavior.floating,
 );

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:task/app/auth/log_In/login_view.dart';
 import 'package:task/app/auth/register/register_view.dart';
 import 'package:task/app/home/view/home_view.dart';
+import 'package:task/app/play/view/play_view.dart';
 import 'package:task/app/splash/view/splash_view.dart';
 import 'package:task/routs/routing_data.dart';
 import 'package:task/routs/routs_names.dart';
@@ -27,6 +28,8 @@ class AppRouter {
         return _getPageRoute(const RegisterView(), settings);
       case RouteName.home:
         return _getPageRoute(const HomeView(), settings);
+      case RouteName.play:
+        return _getPageRoute(const PlayView(), settings);
 
       default:
         return _getPageRoute(const SplashView(), settings);

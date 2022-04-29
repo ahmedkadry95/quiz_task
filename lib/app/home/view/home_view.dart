@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:task/app/home/view_model/home_view_model.dart';
 import 'package:task/app/home/widgets/home_item.dart';
@@ -24,6 +25,32 @@ class HomeView extends StatelessWidget {
                 'Quiz',
                 style: TextStyle(fontSize: 24),
               ),
+              actions: [
+                Center(
+                  child: InkWell(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: whiteColor,
+                      ),
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+                        tr('current_language'),
+                        style: TextStyle(
+                          color: purpleColor,
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      if (tr('current_language_iso') == 'ar') {
+                        context.setLocale(Locale('en'));
+                      } else {
+                        context.setLocale(Locale('ar'));
+                      }
+                    },
+                  ),
+                )
+              ],
               elevation: 0,
               centerTitle: false,
             ),

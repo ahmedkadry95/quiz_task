@@ -143,7 +143,6 @@ class ApiService {
     QuerySnapshot querySnapshot = await questions.get();
     List<QueryDocumentSnapshot> data = querySnapshot.docs;
     for (var element in data) {
-      print(element.data().runtimeType);
       questionsList.add(QuestionModel.fromJson(element.data()));
     }
     return questionsList ;

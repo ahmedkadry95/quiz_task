@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:task/locator.dart';
@@ -12,8 +13,19 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   setupLocator();
-
-  runApp(const App());
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [
+        Locale('ar'),
+        Locale('en'),
+      ],
+      startLocale: const Locale('en'),
+      saveLocale: true,
+      path: 'assets/translations',
+      useOnlyLangCode: true,
+      child: const App(),
+    ),
+  );
 }
 
 class App extends StatelessWidget {
@@ -28,6 +40,9 @@ class App extends StatelessWidget {
       initialRoute: RouteName.splash,
       navigatorKey: locator<NavigationService>().navigatorKey,
       onGenerateRoute: AppRouter.generateRoute,
+      locale: context.locale,
+      supportedLocales: context.supportedLocales,
+      localizationsDelegates: context.localizationDelegates,
     );
   }
 }

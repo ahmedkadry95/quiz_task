@@ -26,30 +26,13 @@ class HomeView extends StatelessWidget {
                 style: TextStyle(fontSize: 24),
               ),
               actions: [
-                Center(
-                  child: InkWell(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: whiteColor,
-                      ),
-                      margin: const EdgeInsets.symmetric(horizontal: 10),
-                      padding: const EdgeInsets.all(10),
-                      child: Text(
-                        tr('current_language'),
-                        style: TextStyle(
-                          color: purpleColor,
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      if (tr('current_language_iso') == 'ar') {
-                        context.setLocale(Locale('en'));
-                      } else {
-                        context.setLocale(Locale('ar'));
-                      }
-                    },
-                  ),
-                )
+                languageItem().onTap(() {
+                  if (tr('current_language_iso') == 'ar') {
+                    context.setLocale(Locale('en'));
+                  } else {
+                    context.setLocale(Locale('ar'));
+                  }
+                }),
               ],
               elevation: 0,
               centerTitle: false,
@@ -68,14 +51,14 @@ class HomeView extends StatelessWidget {
                   homeItem(
                     image: 'assets/images/shaps.png',
                     color: blueColor,
-                    text: 'let\'s play',
+                    text: tr('Start quiz'),
                   ).onTap(() {
                     viewModel.navigation.navigateTo(RouteName.play);
                   }),
                   homeItem(
                     image: 'assets/images/history.png',
                     color: orangeColor,
-                    text: 'your history ',
+                    text: tr('Your log'),
                   ),
                 ],
               ),
@@ -90,6 +73,23 @@ class HomeView extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  Center languageItem() {
+    return Center(
+      child: Container(
+        decoration: BoxDecoration(
+            color: whiteColor, borderRadius: BorderRadius.circular(10)),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.all(10),
+        child: Text(
+          tr('current_language'),
+          style: TextStyle(
+            color: purpleColor,
+          ),
+        ),
+      ),
     );
   }
 }

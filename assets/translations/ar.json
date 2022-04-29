@@ -1,4 +1,6 @@
 {
-"current_language_iso" : "ar" ,
-"current_language" : "English"
+  "current_language_iso": "ar",
+  "current_language": "English",
+  "start_quiz": "Start_quiz",
+  "log": "Log"
 }

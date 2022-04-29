@@ -137,14 +137,11 @@ class ApiService {
         .catchError((error) => print("Failed to add user: $error"));
   }
 
-
-
-  Future<List<QuestionModel>> getAllQuestions() async {
-    QuerySnapshot querySnapshot = await questions.get();
-    List<QueryDocumentSnapshot> data = querySnapshot.docs;
-    for (var element in data) {
-      questionsList.add(QuestionModel.fromJson(element.data()));
-    }
-    return questionsList ;
-  }
+// getAllQuestions() async {
+//   QuerySnapshot querySnapshot = await questions.get();
+//   List<QueryDocumentSnapshot> data = querySnapshot.docs;
+//   for (var element in data) {
+//     questionsList.add(QuestionModel.fromJson(element.data()));
+//   }
+// }
 }

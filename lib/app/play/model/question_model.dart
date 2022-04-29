@@ -1,13 +1,16 @@
 class QuestionModel {
-  String? question, correctAnswer, wrongAnswerOne, wrongAnswerTwo;
+  String? id, question, correctAnswer, wrongAnswerOne, wrongAnswerTwo ,lang;
 
-  QuestionModel(this.question, this.correctAnswer, this.wrongAnswerOne,
-      this.wrongAnswerTwo);
+  QuestionModel(this.id, this.question, this.correctAnswer, this.wrongAnswerOne,
+      this.wrongAnswerTwo, this.lang);
+
 
   QuestionModel.fromJson(json) {
+    id = json['id'];
     question = json['question'];
-    correctAnswer = json['correct_answer'];
-    wrongAnswerOne = json['wrong_answer_one'];
-    wrongAnswerTwo = json['wrong_answer_two'];
+    correctAnswer = json['correct'];
+    wrongAnswerOne = json['wrong_one'];
+    wrongAnswerTwo = json['wrong_two'];
+    lang = json['lang'];
   }
 }

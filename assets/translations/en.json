@@ -1,6 +1,23 @@
 {
   "current_language_iso": "en",
   "current_language": "عربي",
-  "Start_quiz": "إبداء الاختبار",
-  "log": "السجل"
+  "start_quiz": "Start quiz",
+  "log": "Log",
+  "quiz": "quizzes",
+  "created_at": "Created At",
+  "correct_answer": "correct answers",
+  "wrong_answer": "wrong answers",
+  "total_answer": "total answers",
+  "quiz_finished": "quiz finished",
+  "result": "result",
+  "log_in": "Log In",
+  "email": "Email",
+  "password": "Password",
+  "login_with": "or you can log in with",
+  "do_not_have": "do not have account ?",
+  "register": "Register",
+  "user_name": "User name",
+  "mobile": "Mobile",
+  "have_acc": "already have account ?",
+  "ok": "ok"
 }

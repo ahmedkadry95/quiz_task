@@ -1,16 +1,20 @@
 class QuestionModel {
-  String? id, question, correctAnswer, wrongAnswerOne, wrongAnswerTwo ,lang;
+  String? id, question, lang;
+  int? answer,point;
+  List? options;
+  bool isAnswered = false;
+  int selectedAnswer= -1 ;
 
-  QuestionModel(this.id, this.question, this.correctAnswer, this.wrongAnswerOne,
-      this.wrongAnswerTwo, this.lang);
+  QuestionModel(
+      this.id, this.question, this.lang, this.answer, this.point, this.options);
 
-
-  QuestionModel.fromJson(json) {
+  QuestionModel.fromJson(json){
     id = json['id'];
     question = json['question'];
-    correctAnswer = json['correct'];
-    wrongAnswerOne = json['wrong_one'];
-    wrongAnswerTwo = json['wrong_two'];
     lang = json['lang'];
+    answer = json['answer'];
+    options = json['options'];
+    point = json['point'];
   }
+
 }

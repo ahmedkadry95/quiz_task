@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:task/app/auth/model/user_model.dart';
+import 'package:task/app/home/model/log_model.dart';
 
 import '../app/play/model/question_model.dart';
 
@@ -11,7 +12,9 @@ class ApiService {
   CollectionReference users = FirebaseFirestore.instance.collection('users');
   CollectionReference questions =
       FirebaseFirestore.instance.collection('questions');
+
   List<QuestionModel> questionsList = [];
+  List<LogModel> logList = [];
 
   Future<String> signInWithEmailAndPassword({
     required String email,
@@ -137,11 +140,15 @@ class ApiService {
         .catchError((error) => print("Failed to add user: $error"));
   }
 
-// getAllQuestions() async {
-//   QuerySnapshot querySnapshot = await questions.get();
-//   List<QueryDocumentSnapshot> data = querySnapshot.docs;
-//   for (var element in data) {
-//     questionsList.add(QuestionModel.fromJson(element.data()));
-//   }
-// }
+  void createNewLog(LogModel logModel) {
+    FirebaseFirestore.instance
+        .collection('history')
+        .doc(logModel.id)
+        .set(logModel.toJson())
+        .then((value) {
+      print('loged add success');
+    });
+  }
+
+
 }

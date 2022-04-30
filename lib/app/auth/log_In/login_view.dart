@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:task/app/auth/log_In/login_view_model.dart';
 import 'package:task/app/auth/widgets/center_logo.dart';
@@ -34,17 +35,17 @@ class LogInView extends StatelessWidget {
                   children: [
                     centerLogo(),
                     heightSpace(50),
-                    blackTitle2('Log In'),
+                    blackTitle2(tr('log_in')),
                     heightSpace(30),
                     CustomTextFormField(
-                      label: 'Email',
+                      label: tr('email'),
                       inputType: TextInputType.text,
                       controller: viewModel.email,
                       validator: viewModel.emailValidator(),
                     ),
                     heightSpace(20),
                     CustomTextFormField(
-                      label: 'Password',
+                      label: tr('password'),
                       inputType: TextInputType.text,
                       controller: viewModel.password,
                       isPassword: true,
@@ -54,28 +55,21 @@ class LogInView extends StatelessWidget {
                     viewModel.state == ViewState.Busy
                         ? Center(child: CircularProgressIndicator())
                         : mainButton(
-                            text: 'Log In',
+                            text: tr('log_in'),
                           ).onTap(() {
                             viewModel.login(context);
                           }),
-                    heightSpace(20),
-                    differentColorsText(
-                            blackText: 'don\'t have account ?',
-                            purpleText: 'Register')
-                        .onTap(() {
-                      viewModel.navigation.navigateTo(RouteName.register);
-                    }),
-                    heightSpace(mediaQuery.height * 0.25),
-                    const Align(
+                    heightSpace(25),
+                    Align(
                       alignment: Alignment.center,
                       child: Text(
-                        'Or you can log in with',
+                        tr('login_with'),
                         style: TextStyle(
                           color: grey,
                         ),
                       ),
                     ),
-                    heightSpace(10),
+                    heightSpace(25),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -89,7 +83,14 @@ class LogInView extends StatelessWidget {
                           viewModel.tryToLoginWithGoogle();
                         }),
                       ],
-                    )
+                    ),
+                    heightSpace(100),
+                    differentColorsText(
+                      blackText: tr('do_not_have'),
+                      purpleText: tr('register'),
+                    ).onTap(() {
+                      viewModel.navigation.navigateTo(RouteName.register);
+                    }),
                   ],
                 ),
               ),

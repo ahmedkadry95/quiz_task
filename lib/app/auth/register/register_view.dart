@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:task/app/auth/register/register_view_model.dart';
 import 'package:task/app/auth/widgets/center_logo.dart';
@@ -32,10 +33,10 @@ class RegisterView extends StatelessWidget {
                   children: [
                     centerLogo(),
                     heightSpace(50),
-                    blackTitle2('Register'),
+                    blackTitle2(tr('register')),
                     heightSpace(30),
                     CustomTextFormField(
-                      label: 'User name',
+                      label: tr('user_name'),
                       inputType: TextInputType.text,
                       controller: viewModel.userName,
                       isPassword: false,
@@ -43,14 +44,14 @@ class RegisterView extends StatelessWidget {
                     ),
                     heightSpace(20),
                     CustomTextFormField(
-                      label: 'Email',
+                      label: tr('email'),
                       inputType: TextInputType.text,
                       controller: viewModel.email,
                       validator: viewModel.emailValidator(),
                     ),
                     heightSpace(20),
                     CustomTextFormField(
-                      label: 'Password',
+                      label: tr('password'),
                       inputType: TextInputType.text,
                       controller: viewModel.password,
                       isPassword: true,
@@ -58,7 +59,7 @@ class RegisterView extends StatelessWidget {
                     ),
                     heightSpace(20),
                     CustomTextFormField(
-                      label: 'Mobile',
+                      label: tr('mobile'),
                       inputType: TextInputType.number,
                       controller: viewModel.mobile,
                       isPassword: false,
@@ -72,14 +73,14 @@ class RegisterView extends StatelessWidget {
                             color: purpleColor,
                           )))
                         : mainButton(
-                            text: 'Register',
+                            text: tr('register'),
                           ).onTap(() {
                             viewModel.register(context);
                           }),
                     heightSpace(20),
                     differentColorsText(
-                      blackText: 'already have account ?',
-                      purpleText: 'Log in',
+                      blackText: tr('have_acc'),
+                      purpleText: tr('log_in'),
                     ).onTap(() {
                       viewModel.navigation.navigateTo(RouteName.logIn);
                     }),

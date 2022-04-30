@@ -1,6 +1,23 @@
 {
   "current_language_iso": "ar",
   "current_language": "English",
-  "start_quiz": "Start_quiz",
-  "log": "Log"
+  "start_quiz": "إبداء الاختبار",
+  "log": "السجل",
+  "quiz": "الإختبارات",
+  "created_at": "أنشئت في",
+  "correct_answer": "الإجابات الصحيحة",
+  "wrong_answer": "إجابات خاطئة",
+  "total_answer": "إجمالي الإجابات",
+  "quiz_finished": "انتهى الاختبار",
+  "result": "نتيجة",
+  "log_in": "تسجيل الدخول",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة السر",
+  "login_with": "او يمكنك تسجيل الدخول ب",
+  "do_not_have": "لا تمتلك حساب ؟",
+  "register": "انشاء حساب",
+  "user_name": "اسم المستخدم",
+  "mobile": "رقم الهاتف ",
+  "have_acc": "لديك حساب بالفعل ؟",
+  "ok": "حسناً"
 }

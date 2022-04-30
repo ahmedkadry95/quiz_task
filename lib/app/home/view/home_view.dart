@@ -19,10 +19,11 @@ class HomeView extends StatelessWidget {
       builder: (context, viewModel, child) {
         return SafeArea(
           child: Scaffold(
+            backgroundColor: backgroundColor,
             appBar: AppBar(
               backgroundColor: purpleColor,
-              title: const Text(
-                'Quiz',
+              title:  Text(
+                tr('quiz'),
                 style: TextStyle(fontSize: 24),
               ),
               actions: [
@@ -51,15 +52,17 @@ class HomeView extends StatelessWidget {
                   homeItem(
                     image: 'assets/images/shaps.png',
                     color: blueColor,
-                    text: tr('Start quiz'),
+                    text: tr('start_quiz'),
                   ).onTap(() {
                     viewModel.navigation.navigateTo(RouteName.play);
                   }),
                   homeItem(
                     image: 'assets/images/history.png',
                     color: orangeColor,
-                    text: tr('Your log'),
-                  ),
+                    text: tr('log'),
+                  ).onTap(() {
+                    viewModel.navigation.navigateTo(RouteName.log);
+                  }),
                 ],
               ),
             ),

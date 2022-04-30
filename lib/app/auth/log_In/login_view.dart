@@ -91,6 +91,21 @@ class LogInView extends StatelessWidget {
                     ).onTap(() {
                       viewModel.navigation.navigateTo(RouteName.register);
                     }),
+                    heightSpace(10),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        tr('current_language'),
+                        style: TextStyle(color: purpleColor, fontSize: 16),
+                      ).onTap(() {
+                        if (tr('current_language_iso') == 'ar') {
+                          context.setLocale(Locale('en'));
+                        } else {
+                          context.setLocale(Locale('ar'));
+                        }
+                      }),
+                    ),
+                    heightSpace(20),
                   ],
                 ),
               ),

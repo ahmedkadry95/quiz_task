@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:task/app/auth/widgets/auth_snak_bar.dart';
 import 'package:task/base_view_model.dart';
@@ -26,7 +27,7 @@ class RegisterViewModel extends BaseViewModel {
   FormFieldValidator<String>? userNameValidator() {
     FormFieldValidator<String>? validator = (value) {
       if (value == null || value.isEmpty) {
-        return 'Pleas enter your user name';
+        return tr('enter_user_name');
       }
       return null;
     };
@@ -36,10 +37,10 @@ class RegisterViewModel extends BaseViewModel {
   FormFieldValidator<String>? emailValidator() {
     FormFieldValidator<String>? validator = (value) {
       if (value == null || value.isEmpty) {
-        return 'Pleas enter your email';
+        return tr('enter_email');
       }
       if (!isValidEmail(value.trim())) {
-        return 'this email is not valid';
+        return tr('valid_email');
       }
       return null;
     };
@@ -56,10 +57,10 @@ class RegisterViewModel extends BaseViewModel {
   FormFieldValidator<String>? passwordValidator() {
     FormFieldValidator<String>? validator = (value) {
       if (value == null || value.isEmpty) {
-        return 'please enter your password';
+        return tr('enter_password');
       }
       if (value.length < 6) {
-        return 'this password is too weak';
+        return tr('valid_password');
       }
       return null;
     };
@@ -69,10 +70,10 @@ class RegisterViewModel extends BaseViewModel {
   FormFieldValidator<String>? mobileValidator() {
     FormFieldValidator<String>? validator = (value) {
       if (value == null || value.isEmpty) {
-        return 'please enter your mobile';
+        return tr('enter_mobile');
       }
       if (value.length != 11) {
-        return 'please enter valid mobile number';
+        return tr('valid_mobile');
       }
       return null;
     };
@@ -103,8 +104,7 @@ class RegisterViewModel extends BaseViewModel {
           break;
         case 'this email is already exist':
           {
-            ScaffoldMessenger.of(context)
-                .showSnackBar(existSnackBar);
+            ScaffoldMessenger.of(context).showSnackBar(existSnackBar);
           }
           break;
         default:

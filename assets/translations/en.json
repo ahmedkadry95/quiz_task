@@ -19,5 +19,12 @@
   "user_name": "User name",
   "mobile": "Mobile",
   "have_acc": "already have account ?",
-  "ok": "ok"
+  "ok": "ok",
+  "enter_email": "Please enter your email",
+  "enter_user_name": "Please enter your user name",
+  "enter_password": "Please enter your password",
+  "enter_mobile": "Please enter your mobile",
+  "valid_email": "this email is not valid",
+  "valid_password": "this password is too weak",
+  "valid_mobile": " this mobile number is not valid"
 }

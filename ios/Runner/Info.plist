@@ -60,5 +60,11 @@
     		</array>
     	</dict>
     </array>
+    <key>FacebookAppID</key>
+    <string>5026165747464360</string>
+    <key>FacebookClientToken</key>
+    <string>c03ead7c5867e2c3bac46dafc47a4455</string>
+    <key>FacebookDisplayName</key>
+    <string>MCQ Quiz</string>
 </dict>
 </plist>

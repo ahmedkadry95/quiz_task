@@ -49,5 +49,16 @@
            <string>ar</string>
            <string>de</string>
     </array>
+    <key>CFBundleURLTypes</key>
+    <array>
+    	<dict>
+    		<key>CFBundleTypeRole</key>
+    		<string>Editor</string>
+    		<key>CFBundleURLSchemes</key>
+    		<array>
+    			<string>com.googleusercontent.apps.444762407100-6unn4g7ojsgmrlrt4qrv7j4lo7mhmhuo</string>
+    		</array>
+    	</dict>
+    </array>
 </dict>
 </plist>

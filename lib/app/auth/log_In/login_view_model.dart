@@ -28,6 +28,7 @@ class LoginViewModel extends BaseViewModel {
       var response = await apiService.signInWithFacebook();
       navigation.navigateToAndClearStack(RouteName.home);
     } catch (e) {
+      print('try login with facebook');
       print(e);
     }
   }

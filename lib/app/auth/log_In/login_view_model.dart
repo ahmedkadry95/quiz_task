@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:task/app/auth/widgets/auth_snak_bar.dart';
 import 'package:task/base_view_model.dart';
 import 'package:task/enums/screen_state.dart';
@@ -23,15 +25,36 @@ class LoginViewModel extends BaseViewModel {
     );
   }
 
-  tryToLoginWithFaceBook() async {
-    try {
-      var response = await apiService.signInWithFacebook();
-      navigation.navigateToAndClearStack(RouteName.home);
-    } catch (e) {
-      print('try login with facebook');
-      print(e);
-    }
+  Future<UserCredential> signInWithFacebook() async {
+    // Trigger the sign-in flow
+    final LoginResult loginResult = await FacebookAuth.instance.login();
+
+    // Create a credential from the access token
+    final OAuthCredential facebookAuthCredential =
+        FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
+    // Once signed in, return the UserCredential
+    UserCredential userCredential = await FirebaseAuth.instance
+        .signInWithCredential(facebookAuthCredential);
+
+    await apiService.addUser(
+      mobile: userCredential.user!.phoneNumber,
+      userName: userCredential.user!.displayName,
+      id: userCredential.user!.uid,
+      email: userCredential.user!.email,
+    );
+
+    return userCredential;
   }
+
+  // tryToLoginWithFaceBook() async {
+  //   try {
+  //     await signInWithFacebook();
+  //     navigation.navigateToAndClearStack(RouteName.home);
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
 
   tryToLoginWithGoogle() async {
     try {

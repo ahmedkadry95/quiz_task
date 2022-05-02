@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:task/app/log/view_model/log_view_model.dart';
-import 'package:task/app/splash/view_model/splash_view_model.dart';
 import 'package:task/base_screen.dart';
 import 'package:task/utils/colors.dart';
 
@@ -51,14 +50,16 @@ class LogView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('${tr('correct_answer')} ${viewModel.logList[index].correctAnswerCount}'),
-                        Text('${tr('wrong_answer')} ${viewModel.logList[index].wrongAnswerCount}'),
-                        Text('${tr('total_answer')} ${viewModel.logList[index].totalAnswer}'),
+                        Text(
+                            '${tr('correct_answer')} ${viewModel.logList[index].correctAnswerCount}'),
+                        Text(
+                            '${tr('wrong_answer')} ${viewModel.logList[index].wrongAnswerCount}'),
+                        Text(
+                            '${tr('total_answer')} ${viewModel.logList[index].totalAnswer}'),
                       ],
                     ),
                   ),
                 );
-                Text(viewModel.logList[index].createdAt.toString());
               },
             ),
           ),

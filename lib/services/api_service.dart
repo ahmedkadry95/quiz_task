@@ -64,27 +64,6 @@ class ApiService {
         id: userCredential.user!.uid);
   }
 
-  Future<UserCredential> signInWithFacebook() async {
-    // Trigger the sign-in flow
-    final LoginResult loginResult = await FacebookAuth.instance.login();
-
-    // Create a credential from the access token
-    final OAuthCredential facebookAuthCredential =
-        FacebookAuthProvider.credential(loginResult.accessToken!.token);
-
-    // Once signed in, return the UserCredential
-    UserCredential userCredential = await FirebaseAuth.instance
-        .signInWithCredential(facebookAuthCredential);
-
-    await addUser(
-      mobile: userCredential.user!.phoneNumber,
-      userName: userCredential.user!.displayName,
-      id: userCredential.user!.uid,
-      email: userCredential.user!.email,
-    );
-
-    return userCredential;
-  }
 
   Future<String> registerUser({
     required String email,

@@ -10,8 +10,6 @@ import 'package:task/utils/extensions.dart';
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
-  signOut() async {}
-
   @override
   Widget build(BuildContext context) {
     return BaseView<HomeViewModel>(

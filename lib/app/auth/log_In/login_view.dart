@@ -76,7 +76,7 @@ class LogInView extends StatelessWidget {
                         socialLogin(
                           'assets/images/fb.png',
                         ).onTap(() {
-                          viewModel.tryToLoginWithFaceBook();
+                          viewModel.signInWithFacebook();
                         }),
                         widthSpace(20),
                         socialLogin('assets/images/g.png').onTap(() {
